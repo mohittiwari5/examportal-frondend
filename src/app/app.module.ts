@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { HomeComponent } from './pages/home/home.component';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -26,6 +28,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     FooterComponent,
     SignupComponent,
     LoginComponent,
+    HomeComponent,
     
   ],
   imports: [
@@ -38,7 +41,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     FormsModule,
     HttpClientModule,
     MatSnackBarModule,
-    SweetAlert2Module
+    SweetAlert2Module,
+    MatCardModule
     
   ],
   providers: [],
