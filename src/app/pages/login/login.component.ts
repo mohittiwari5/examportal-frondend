@@ -53,16 +53,29 @@ export class LoginComponent implements OnInit {
               //redirect: ADMIN -> admin-dashboard
               //redirect: NORMAL -> normal-dashboard
 
-
+              if(this.loginService.getUserRole()==="ADMIN"){
+                //admin-dashboard
+                window.location.href = '/admin-dashboard';
+              }
+              else if(this.loginService.getUserRole()==="NORMAL"){
+                //user-dashboard
+                window.location.href = '/user-dashboard';
+              }
+              else{
+                this.loginService.logout();
+              }
             },
             (error) => {
-
+                this.snack.open("Invalid Details!!");
             }
           );
 
       },
       (error) => {
         console.log("ERROR::"+error);
+        this.snack.open("Invalid Details!!",'',{
+          duration: 3000
+        });
       }
     );
   }
