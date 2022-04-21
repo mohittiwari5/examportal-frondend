@@ -1,6 +1,5 @@
 <div class="bootstrap-wrapper">
     <div class="container">
-
         <div class="row mt20">
             <div class="col-md-6 offset-md-3">
 
@@ -9,19 +8,22 @@
                         <img src="../../../assets/logo.png">
                     </div>
                     <h1 class="text-center">Login Page</h1>
+                    
+                    {{loginData | json}}
+
 
                     <form (ngSubmit)="formSubmit()">
                         <!-- User Name field -->
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Username</mat-label>
-                            <input name="username" matInput placeholder="Username*" required>
+                            <input [(ngModel)]="loginData.username" name="username" matInput placeholder="Username*" required>
                             <mat-hint>Valid username</mat-hint>
                         </mat-form-field>
 
                         <!-- Password field -->
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Password</mat-label>
-                            <input name="password" type="password" matInput placeholder="Password*" required>
+                            <input [(ngModel)]="loginData.password" name="password" type="password" matInput placeholder="Password*" required>
                         </mat-form-field>
 
 
@@ -32,9 +34,6 @@
 
                     </form>
                 </mat-card>
-
-
-
             </div>
         </div>
     </div>
