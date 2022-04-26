@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
+import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
+import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { AdminGuard } from './services/admin.guard';
@@ -24,7 +28,27 @@ const routes: Routes = [
   {
     path: 'admin-dashboard',
     component: AdminDashboardComponent,
-    canActivate: [AdminGuard]
+    canActivate: [AdminGuard],
+
+    children: [
+      {
+        path:'profile',
+        component: ProfileComponent
+      },
+      {
+        path:'',
+        component: WelcomeComponent
+      },
+      {
+        path:'categories',
+        component: ViewCategoriesComponent
+      },
+      {
+        path:'add-category',
+        component: AddCategoryComponent
+      }
+    ]
+
   },
   {
     path: 'user-dashboard',
