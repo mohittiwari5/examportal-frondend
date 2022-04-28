@@ -13,8 +13,12 @@
         <button mat-flat-button color="primary">Questions</button>
         <button class="ml20" mat-stroked-button color="primary">Max Marks: {{q.maxMarks}}</button>
         <button class="ml20" mat-stroked-button color="primary">Question: {{q.numberOfQuestions}}</button>
-        <button class="ml20" mat-flat-button color="primary">Update</button>
+        <button [routerLink]="'/admin-dashboard/update-quiz/'+q.qid" class="ml20" mat-flat-button color="primary">Update</button>
         <button class="ml20" mat-flat-button color="primary">Quiz Attempts</button>
+        <button class="ml20" (click)="deleteQuiz(q.qid)" mat-mini-fab color="warn">
+            <mat-icon>delete</mat-icon>
+        </button>
+
     </mat-card-actions>
 
 </mat-card>
