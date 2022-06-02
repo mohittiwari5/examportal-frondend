@@ -15,13 +15,17 @@
                     <form (ngSubmit)="addQuestion()">
 
                         <!-- Content field -->
-                        <mat-form-field class="w100" appearance="outline">
+                        <!-- <mat-form-field class="w100" appearance="outline">
                             <mat-label>Write Question Content</mat-label>
                             <textarea [(ngModel)]="question.content" name="content" matInput placeholder="Enter here" rows="20" required></textarea>
-                        </mat-form-field>
+                        </mat-form-field> -->
+
+                        <ckeditor [editor]="Editor" name="content" [(ngModel)]="question.content">
+
+                        </ckeditor>
 
                         <!-- options -->
-                        <div class="row">
+                        <div class="row mt20">
                             <div class="col-md-6">
                                 <!-- Option 1 -->
                                 <mat-form-field class="w100" appearance="outline">
