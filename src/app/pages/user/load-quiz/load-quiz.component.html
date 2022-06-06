@@ -22,7 +22,7 @@
 
                     <mat-card-actions>
                         <button mat-raised-button color="primary">View</button>
-                        <button mat-raised-button color="warn">Start</button>
+                        <button mat-raised-button [routerLink]="'/user-dashboard/instructions/'+q.qid" color="warn">Start</button>
                         <button mat-button color="primary" >Questions: {{q.numberOfQuestions}}</button>
                         <button mat-button color="primary" >Marks: {{q.maxMarks}}</button>
                     </mat-card-actions>

@@ -1,0 +1,75 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-12">
+                <h1 style="font-weight: bold;">Read the Instructions Carefully</h1>
+                <mat-card class="mt20">
+
+                    <mat-card-header>
+                        <mat-card-title>
+                            {{quiz.title}}
+                        </mat-card-title>
+                        <mat-card-subtitle>
+                            {{quiz.description}}
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-divider></mat-divider><br>
+
+                    <mat-card-content class="ml20">
+
+                        <h1>Important Instructions</h1>
+
+                        <ul>
+                            <h2>Taking the Quiz</h2>
+                            <li>Select an answer for every question. Unanswered questions will be scored as incorrect.
+                            </li>
+
+                            <li>
+                                There are three possible question types:
+                                <ul>
+                                    <li>Multiple Choice: click the radio button to indicate your choice. Currently, only
+                                        one answer can be selected for a multiple choice question.</li>
+                                    <li>True/False: click the radio button to indicate your choice.</li>
+                                    <li>Matching Answers: select a match from the pop-up list below each item.</li>
+                                </ul>
+                            </li>
+                            <li>If you use a wheel button mouse, take care not to accidently change your answers.
+                                Sometimes scrolling the wheel will rotate through the answers in a selection list, when
+                                you might have meant simply to scroll farther down in the quiz window.</li>
+                            <li>Click on the Submit button at the bottom of the page to have your answers graded.</li>
+                            <li>You will be shown your results, including your score and any feedback offered by the
+                                author of the quiz. You might wish to print this page for your own records. At this
+                                stage, you might be able to check your answers: see below.</li>
+                            <li>If you want to try to get a better score, click the Try Again button at the bottom of
+                                the results page. You can try the quiz as many times as you like.</li>
+                            <li>If you are completing the quiz as part of a class assignment, use the Print command from
+                                your web browser to print the results page for your instructor, and for your own
+                                records.</li>
+                        </ul>
+
+                        <ul>
+                            <h2>Checking Your Answers</h2>
+                            <li>Depending on how the quiz is configured, you might be allowed to check your answers.
+                            </li>
+                            <li>Click on the Check Answers button at the bottom of the results page. A new browser
+                                window will open. (If you do not see the "Check Answers" button, it means that you are
+                                not allowed to check your answers for that quiz.)</li>
+                            <li>Each question is preceded by the word "correct" or "incorrect", and the answer you gave
+                                is shown.</li>
+                            <li>The author of the quiz may have helpful comments for each question. Be sure to check for
+                                this feedback.</li>
+                            <li>Close this browser window when you are done checking your answers.</li>
+                        </ul>
+                    </mat-card-content>
+
+                    <mat-card-actions class="text-center">
+                        <button mat-raised-button (click)="startQuiz()" color="primary">Start Quiz</button>
+                    </mat-card-actions>
+
+
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
