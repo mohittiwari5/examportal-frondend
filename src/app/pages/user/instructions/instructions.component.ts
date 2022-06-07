@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { QuizService } from 'src/app/services/quiz.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-instructions',
@@ -27,6 +28,20 @@ export class InstructionsComponent implements OnInit {
   }
 
   public startQuiz(){
+
+    Swal.fire({
+      title: 'Do you want to start the Quiz?',
+      showCancelButton: true,
+      confirmButtonText: 'Start',
+      cancelButtonText: "Cancel",
+      icon:'question'
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        
+        this.router.navigate(['/startquiz/'+this.qid]);   
+      }
+    })
     
   }
 

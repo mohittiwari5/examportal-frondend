@@ -41,7 +41,8 @@ import { SidebarComponent as UserSidebarComponent } from './pages/user/sidebar/s
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import { StartquizComponent } from './pages/user/startquiz/startquiz.component';
-
+import {MatRadioModule} from '@angular/material/radio';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,9 @@ import { StartquizComponent } from './pages/user/startquiz/startquiz.component';
     MatTableModule,
     MatSlideToggleModule,
     MatSelectModule,
-    CKEditorModule
+    CKEditorModule,
+    MatRadioModule,
+    MatProgressSpinnerModule
     
   ],
   providers: [authInterceptorProviders],
