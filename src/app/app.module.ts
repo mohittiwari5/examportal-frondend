@@ -43,6 +43,7 @@ import { InstructionsComponent } from './pages/user/instructions/instructions.co
 import { StartquizComponent } from './pages/user/startquiz/startquiz.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgxUiLoaderModule , NgxUiLoaderHttpModule} from "ngx-ui-loader";
 
 @NgModule({
   declarations: [
@@ -90,7 +91,26 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatSelectModule,
     CKEditorModule,
     MatRadioModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    NgxUiLoaderHttpModule.forRoot({ showForeground: true }),
+    NgxUiLoaderModule.forRoot(
+      {
+        "bgsType": "square-jelly-box",
+        "fgsType": "three-strings",
+        "fgsSize": 70,
+        "fgsColor": "red",
+        "blur": 10,
+        "pbColor": "red",
+        "pbThickness": 4,
+        "textColor": "#FFFFFF",
+        "overlayBorderRadius": "30",
+        "logoUrl": "assets/quiz.png",
+        
+        
+        "bgsColor": "red",
+        "bgsSize": 70,
+      }
+    )
     
   ],
   providers: [authInterceptorProviders],

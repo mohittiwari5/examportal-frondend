@@ -34,11 +34,12 @@ export class StartquizComponent implements OnInit {
     this.questionService.getQuestionsOfQuizForTest(this.qid).subscribe(
       (data) => {
         this.questions = data;
-        this.questions.forEach((q: any) => {
-          q['givenAnswer'] = '';
-          this.timer = this.questions.length * 2 * 60;
-        })
+        this.timer = this.questions.length * 2 * 60;
+        // this.questions.forEach((q: any) => {
+        //   q['givenAnswer'] = '';
+        // })
         console.log(this.questions)
+        this.startTimer();
       },
       (error) => {
         Swal.fire("Error", "Error in loading questions of quiz", error);
@@ -68,26 +69,44 @@ export class StartquizComponent implements OnInit {
       icon: 'question'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.isSubmit = true;
-        //calculation
-        this.questions.forEach((q: any) => {
-          if (q.givenAnswer == q.answer) {
-            this.correctAnswers++;
-            let marksSingle = this.questions[0].quiz.maxMarks / this.questions.length;
-            this.marksGot += marksSingle;
-          }
-
-          if(q.givenAnswer.trim() != ''){
-            this.attempted++;
-          }
-
-        });
-        console.log("Correct Answer::" + this.correctAnswers);
-        console.log("Marks Got::" + this.marksGot);
-
+        this.evalQuiz();
       }
     })
 
+  }
+
+  public evalQuiz(){
+    this.isSubmit = true;
+
+    //call to server to evaluate quiz on server
+    this.questionService.evalQuiz(this.questions).subscribe(
+      (data:any) => {
+        console.log("Data from server:: "+JSON.stringify(data));
+        this.attempted = data.attempted;
+        this.marksGot = data.marksGot;
+        this.correctAnswers = data.correctAnswers;
+        this.isSubmit = true;
+      },
+      (error) => {
+        console.log("error in Sending to Server::"+error);
+      }
+    );
+
+        //calculation
+        // this.questions.forEach((q: any) => {
+        //   if (q.givenAnswer == q.answer) {
+        //     this.correctAnswers++;
+        //     let marksSingle = this.questions[0].quiz.maxMarks / this.questions.length;
+        //     this.marksGot += marksSingle;
+        //   }
+
+        //   if(q.givenAnswer.trim() != ''){
+        //     this.attempted++;
+        //   }
+
+        // });
+        // console.log("Correct Answer::" + this.correctAnswers);
+        // console.log("Marks Got::" + this.marksGot);
   }
 
 
@@ -95,12 +114,21 @@ export class StartquizComponent implements OnInit {
     let t = window.setInterval(()=>{
       
       if(this.timer<=0){
-        this.submitQuiz();
+        this.evalQuiz();
         clearInterval(t);
       }
-
+      else{
+        this.timer--;
+      }
 
     },1000)
+  }
+
+
+  public getFormattedTime(){
+    let mm = Math.floor(this.timer / 60);
+    let ss = this.timer-mm*60;
+    return`${mm} min : ${ss} sec`
   }
 
 }
