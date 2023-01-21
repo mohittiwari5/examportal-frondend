@@ -131,4 +131,8 @@ export class StartquizComponent implements OnInit {
     return`${mm} min : ${ss} sec`
   }
 
+  public printResult(){
+    window.print();
+  }
+
 }

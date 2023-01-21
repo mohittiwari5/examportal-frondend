@@ -104,7 +104,7 @@
                 </mat-card-content>
 
                 <mat-card-actions class="text-center">
-                    <button mat-raised-button  color="primary">Print</button>
+                    <button mat-raised-button (click)="printResult()"  color="primary">Print</button>
                     <button mat-raised-button [routerLink]="'/user-dashboard/0'"  color="accent">Home</button>
                 </mat-card-actions>
 
